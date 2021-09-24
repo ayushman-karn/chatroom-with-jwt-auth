@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html coun="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Chatroom</title>
+    <link rel="stylesheet" href="./style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body class="Chatroom" id="chatroom">
+    <ul class="nav">
+      <li><a href="/logout">Logout</a></li>
+    </ul>
+    <div class="message-container">
+      <%all.forEach(message => {%>
+      <div class="message">
+        <p><%= message.text%></p>
+        <span class="time"><%= message.createdAt %></span>
+        <span class="name"><%= message.email %></span>
+      </div>
+      <% }) %>
+    </div>
+    <form id="snippet-form" action="/chatroom" , method="POST">
+      <input type="text" name="Snippet" onkeyup="saveValue(this)" />
+      <button type="submit" id="btn" style="border-radius: 0; height: 4.2rem">
+        Send
+      </button>
+    </form>
+    <script>
+      setInterval(() => {
+        location.reload();
+      }, 10000);
+    </script>
+  </body>
+</html>
